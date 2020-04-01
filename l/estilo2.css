@@ -1,0 +1,55 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+body
+{
+	background-image: url("Imagens/fundo4.jpg");
+	background-position: 50% 70%;
+	font-family: arial;
+}
+
+h1
+{
+	font-family: Arial;
+	font-size: 34px;
+}
+a
+{
+	color:black;
+}
+
+input{
+	display: block;
+	height: 40px;
+	width: 360px;
+	margin: 10px;
+	border-radius: 30px;
+	border: 1px solid black;
+	font-size: 16pt;
+	padding:10px 20px;
+}
+
+input#L{
+	display: block;
+	height: 35px;
+	width: 340px;
+	margin: 10px;
+	border-radius: 30px;
+	border: 1px solid black;
+	font-size: 16pt;
+	padding:10px 20px;
+}
+
+div#corpo-form{
+	float:left;
+	width: 670px;
+	height: 720px;
+	margin: 150px auto 0px auto;
+}
+div#corpo-form2{
+	float:right;
+	width: 670px;
+	height:720px;
+	margin: 150px auto 0px auto;
+}

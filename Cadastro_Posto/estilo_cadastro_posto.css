@@ -1,0 +1,133 @@
+
+*{
+	margin:0px;
+	padding: 0px;
+}
+body
+{
+	background-image: url("../Imagens/fundo9.jpg");
+	background-position: 50%;
+	font-family: arial;
+	background-size: 100%;
+}
+
+
+.formularios{
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+
+
+}
+
+
+
+
+h1#h
+{
+	font-family: Arial;
+	font-size: 34px;
+	color:white;
+	text-align: center;
+}
+h1#hz
+{
+	font-family: Arial;
+	font-size: 34px;
+	color:white;
+	text-align: center;
+}
+a
+{
+	color:white;
+}
+.col1{
+	display: grid;
+	align-items: right;
+	
+}
+
+.col2{
+	display: grid;
+	align-items: left;	
+}
+
+div#a{
+	float:center;
+}
+div#b{
+	float:center;
+}
+
+input{
+	display: block;
+	height: 35px;
+	width: 300px;
+	margin: 10px;
+	border-radius: 30px;
+	border: 1px solid black;
+	font-size: 16pt;
+	padding:10px 20px;
+	border-color: white;
+	background-color: rgba(255,255,255,0.01);
+	color:white;
+}
+
+input#L{
+	display: block;
+	height: 35px;
+	width: 300px;
+	margin: 10px;
+	border-radius: 30px;
+	border: 1px solid black;
+	font-size: 16pt;
+	padding:10px 20px;
+	border-color: white;
+	background-color: rgba(255,255,255,0.01);
+	color:white;
+}
+div#corpo-form{
+	display: line;
+	float:center;
+	width: 500px;
+	height: 720px;
+	margin: 150px auto 0px auto;
+}
+
+div#corpo-form2{
+	display: line;
+	float:center;
+	width: 500px;
+	height:720px;
+	margin: 150px auto 0px auto;
+}
+
+input#L[type=button]{
+	background-color: darkred;
+	border:none;
+}
+
+
+
+
+input[type=button]{
+	background-color: darkred;
+	border:none;
+}
+
+::-webkit-input-placeholder { /* Webkit Navegador*/
+	color: #fff;
+}
+
+:-moz-placeholder { /*Mozila Firefox */
+	color: #fff;
+}
+
+::-moz-placeholder { /*Mozila Firefox */
+	color: #fff;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+	color: #fff;
+}
+
+
