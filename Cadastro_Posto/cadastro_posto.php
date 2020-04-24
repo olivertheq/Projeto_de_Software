@@ -1,4 +1,6 @@
+
 <?php
+    //Testando o gitub
 	//iniciando a sessao para retornar mensagens
 	session_start();
 ?>
