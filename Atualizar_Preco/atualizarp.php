@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>CADASTRO POSTO</title>
-	<link rel="stylesheet" type="text/css" href="estilo_atualizarp.css">
+	<link rel="stylesheet" type="text/css" href="estilo_atualizar.css">
 </head>
 <body>
 <div id="corpo-form" align="left">
