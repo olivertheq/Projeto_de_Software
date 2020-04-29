@@ -1,0 +1,89 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+body
+{
+	background-image: url("Imagens/fundo9.jpg");
+	background-position: 50%;
+	font-family: arial;
+	background-size: 100%;
+}
+
+h1#h
+{
+	vertical-align: left;
+	text-align: left;
+	font-family: Arial;
+	font-size: 60px;
+	color:white;
+	padding-left: 20px;
+	padding-bottom: 40px;
+	padding-top: 20px;
+}
+input{
+	display: block;
+	height: 40px;
+	width: 360px;
+	margin: 10px;
+	border-radius: 10px;
+	border: 1px solid black;
+	font-size: 16pt;
+	border-color: white;
+	background-color: rgba(255,255,255,0.01);
+	color:white;
+	padding-left: 30px;
+}
+
+div#corpo-form{
+	display: block;
+	float:left;
+	width: 600px;
+	height: 900px;
+	padding-left: 30px;
+}
+
+input#L[type=submit]{
+	background-color: darkred;
+	border:none;
+}
+
+
+p{
+	color: green;
+	font-size: 25px;
+	padding-left: 15px;
+}
+
+a{
+	color: white;
+	font-size: 15px;
+	padding-left: 15px;
+}
+
+
+
+
+
+input[type=submit]{
+	background-color: darkred;
+	border:none;
+}
+
+::-webkit-input-placeholder { /* Webkit Navegador*/
+	color: #fff;
+}
+
+:-moz-placeholder { /*Mozila Firefox */
+	color: #fff;
+}
+
+::-moz-placeholder { /*Mozila Firefox */
+	color: #fff;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+	color: #fff;
+}
+
+
