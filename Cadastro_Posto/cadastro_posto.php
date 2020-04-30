@@ -25,7 +25,7 @@
 			<div id="corpo-form" align="center">
 			<h1 id="h" align="center">CADASTRO DO POSTO</h1>
 			<div id="a">
-				<form method="POST" action="processa_cadastro_posto.php" name="form_cadastro_posto">
+				<form method="POST" action="processa_cadastro_posto.php" name="form_cadastro_posto" enctype='multipart/form-data' autocomplete="off">
 				<input type="text" placeholder="Bandeira Posto" name="bandeira" maxlength="30" />
 				<input type="text" placeholder="Nome" name="nome" maxlength="30" />
 				<input type="text" placeholder="CNPJ" name="cnpj" maxlength="14" />
@@ -34,7 +34,8 @@
 				<input type="Email" placeholder="Email" name="email" maxlength="40" />
 				<input type="Password" placeholder="Senha" name="senha" maxlength="30" id="senha" />
 				<input type="Password" placeholder="Confirmar Senha" name="senhaconfirm" maxlength="30" id="senhaconfirm"/>
-				</div>
+				<input type='file' name='img1' id='img1' size='80' /><br>	
+			</div>
         </div>
 		</div>
 
@@ -42,12 +43,13 @@
             <div id="corpo-form2" align="center">
 		    <h1 id="h" align="center">LOCAL</h1>
 			<div id="b">
-				<input id="L" type="text" placeholder="CEP" name="cep"/>
-				<input id="L" type="text" placeholder="Estado" name="estado"/>
-				<input id="L" type="text" placeholder="Cidade" name="cidade"/>
-				<input id="L" type="text" placeholder="Bairro" name="bairro"/>
-				<input id="L" type="text" placeholder="Rua" name="rua"/>
-				<input id="L" type="text" placeholder="Num" name="num"/>
+				<input id="cep" type="text" placeholder="CEP" name="cep"/>
+				<input id="estado" type="text" placeholder="Estado" name="estado"/>
+				<input id="cidade" type="text" placeholder="Cidade" name="cidade"/>
+				<input id="bairro" type="text" placeholder="Bairro" name="bairro"/>
+				<input id="rua" type="text" placeholder="Rua" name="rua"/>
+				<input id="num" type="text" placeholder="Num" name="num"/>
+				
 				<input type="button" value="Cadastrar" onclick="funcao_senha()"/>
 				<a href="../Login/login.php">Já se cadastrou? <strong>Logar</strong></a>
 				</div>
@@ -59,7 +61,32 @@
 		
 <!-- Confere se as senhas sao iguais e emite mensagem de erro ou não
 	 Tambem confere se os campos estao preenchidos -->
+
+		
+
+
+
+
+
+	
+
+
+!este estilo esta aqui porque os componentes input estao herdando css de borda, e eu não queria borda quando escrevi isso aqui :)
+<style>
+	#img1{
+		border: none;
+	}
+
+</style>
+
+
+</body>
+
+<script src="./jquery-3.5.0.min.js" type="text/javascript"></script>
+
+
 <script  type="text/javascript">
+
 	function funcao_senha(){
 
 		if (form_cadastro_posto.bandeira.value == ""){
@@ -105,18 +132,95 @@
 		}
 		
 	}				
-</script>		
+</script>
 
+<script>
+	//adicionando o preenchimento automatico de endereço com base no servico viacep
+		//
+		
+		$('#cep').keyup(function(){
 
+			var cep = $(this).val();
+			if(cep.length == 8){
+				//alert(cep);
+				pesquisacep(cep);
+			}
+			
+			//Aqui dentro você faz o que quer, manda pra um arquivo php com ajax
+			//ou sla, vai depender do que você quer fazer
 
+		});
+		
 
-
-	
-<script src="./jquery-3.4.1.slim.min" type="text/javascript"></script>
-<script type="text/javascript">
 	
 </script>
 
+<script type="text/javascript" >
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('estado').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('rua').value=("");
+    }
 
-</body>
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('estado').value=(conteudo.uf);
+            document.getElementById('rua').value=(conteudo.logradouro);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('estado').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('rua').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
 </html>
