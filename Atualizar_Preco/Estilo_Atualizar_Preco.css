@@ -12,14 +12,10 @@ body
 
 h1#h
 {
-	vertical-align: left;
-	text-align: left;
 	font-family: Arial;
-	font-size: 60px;
+	font-size: 34px;
 	color:white;
-	padding-left: 20px;
-	padding-bottom: 40px;
-	padding-top: 20px;
+	text-align: center;
 }
 input{
 	display: block;
@@ -43,14 +39,15 @@ div#corpo-form{
 	padding-left: 30px;
 }
 
-input#L[type=submit]{
+input#L[type=button]{
 	background-color: darkred;
 	border:none;
 }
 
 
+
 p{
-	color: green;
+	color: white;
 	font-size: 25px;
 	padding-left: 15px;
 }
@@ -65,7 +62,7 @@ a{
 
 
 
-input[type=submit]{
+input[type=button]{
 	background-color: darkred;
 	border:none;
 }
